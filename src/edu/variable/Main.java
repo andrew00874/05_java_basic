@@ -1,4 +1,4 @@
-
+package edu.variable;
 /*  범위주석
 *
 *  // 한줄 주석
