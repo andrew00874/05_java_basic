@@ -6,7 +6,16 @@ import java.util.Scanner;
 public class ConditionEx {
 
     public void method1(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("나이 입력하세요 : ");
+        int age = sc.nextInt();
 
+        // 만약에 19세 이상이라면
+        if (age >= 19) {
+            System.out.println("성인입니다.");
+        } else {
+            System.out.println("성인이 아닙니다.");
+        }
     }
     public void method2(){
         Scanner sc = new Scanner(System.in);
