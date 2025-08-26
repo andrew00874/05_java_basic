@@ -60,4 +60,24 @@ public class LoopEx3 {
         }while(answer != input);
         System.out.println("정답입니다! 시도횟수 : " + cnt);
     }
+    public void method6() {
+        String password = "java1234";
+        String guess;
+        int cnt = 0;
+        System.out.print("비밀번호를 입력하세요, 시도횟수 (0/5)");
+        while (true) {
+            guess = sc.nextLine();
+            if (guess.equals(password)) {
+                System.out.println("성공!");
+                break;
+            } else {
+                cnt++;
+                System.out.printf("비밀번호가 틀렸습니다, 시도횟수 (%d/5)", cnt);
+            }
+            if (cnt == 5) {
+                System.out.println("시도횟수 초과, 접속을 차단합니다.");
+                break;
+            }
+        }
+    }
 }
