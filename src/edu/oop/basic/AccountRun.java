@@ -1,6 +1,6 @@
 package edu.oop.basic;
 
-import java.sql.SQLOutput;
+import java.util.Scanner;
 
 /*
 * 계좌 기능 실행 클래스
@@ -37,9 +37,20 @@ public class AccountRun {
         // 필수 생성자를 활용하여 데이터를 저장하고 저장된 데이터 확인
         Account a2 = new Account("김재민", "3333-02-5100400", 123123, "1111");
         System.out.println("==== a2의 계좌 정보 ====");
-        System.out.println(a2.getName());
-        System.out.println(a2.getAccountNumber());
-        System.out.println(a2.getPassword());
-        System.out.println(a2.getBalance());
+        System.out.println("이름 : " + a2.getName());
+        System.out.println("계좌번호 : " + a2.getAccountNumber());
+        System.out.println("비밀번호 : " + a2.getPassword());
+        System.out.println("잔액 : " + a2.getBalance());
+
+        Scanner sc = new Scanner(System.in);
+        System.out.print("얼마를 입금하시겠습니까? : ");
+        long howmuch = sc.nextLong();
+        a2.deposit(howmuch);
+        a1.deposit(howmuch);
+        a1.withdraw("1234", 10);
+        a1.withdraw("1111", 20000);
+        a1.withdraw("3333", 20000);
     }
+
+
 }

@@ -1,4 +1,5 @@
 package edu.oop.basic;
+
 /*
 * 계좌 클래스
 * 추후 DB와 Java를 연결할 변수 명칭을 작성하는 클래스
@@ -150,6 +151,10 @@ public class Account {
         this.balance -= amount;
         System.out.printf("%s 계좌에서 %d원 출금\n", accountNumber, amount );
         System.out.println(name + "의 현재 잔액 : " + balance);
+    }
+    public void deposit(long amount) {
+        balance += amount;
+        System.out.println(name + " 현재 잔액 : " + balance);
     }
 }
 /*
