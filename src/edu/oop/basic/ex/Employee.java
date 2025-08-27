@@ -77,19 +77,38 @@ public class Employee {
     }
 
     public void introduce(){
-        System.out.printf("안녕하세요. %s부서 %s %s입니다.", getDept(), getPosition(), getName());
+        System.out.printf("안녕하세요. %s부서 %s %s입니다.\n", getDept(), getPosition(), getName());
     }
+
     public void work(){
-        System.out.printf("%s님이 %s부서에서 열심히 근무중입니다.", getName(), getDept());
+        System.out.printf("%s님이 %s부서에서 열심히 근무중입니다.\n", getName(), getDept());
     }
+
     public void salInfo(){
         System.out.printf("%s님의 연봉 : %d만원\n", getName(), getSalary());
     }
+
     public void checkPromo(){
         if (workYears >= 3){
-            System.out.printf("%s님은 근무년수 %d년으로 승진대상자입니다.", getName(), getWorkYears());
+            System.out.printf("%s님은 근무년수 %d년으로 승진대상자입니다.\n", getName(), getWorkYears());
         } else {
-            System.out.printf("%s님은 근무년수 %d년으로 승진까지 %d년 더 필요로 합니다", getName(), getWorkYears(), 3-getWorkYears());
+            System.out.printf("%s님은 근무년수 %d년으로 승진까지 %d년 더 필요로 합니다.\n", getName(), getWorkYears(), 3-getWorkYears());
         }
+    }
+
+    public void retirement() {
+        int retirement = getSalary() * getWorkYears();
+        System.out.printf("%s 님의 예상 퇴직금 : %,d만원(연봉 %,d만원 x 근무년수 %d년) \n", getName(), retirement, getSalary(), getWorkYears());
+    }
+
+    @Override
+    public String toString() {
+        return  "이름 = '" + name + '\'' +
+                ", 나이 = " + age +
+                ", 부서 = '" + dept + '\'' +
+                ", 직급 = '" + position + '\'' +
+                ", 연봉 = " + salary +
+                ", 사원번호 = '" + employeeId + '\'' +
+                ", 근속년수 = " + workYears;
     }
 }
