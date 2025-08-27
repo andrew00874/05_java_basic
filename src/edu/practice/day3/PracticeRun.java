@@ -4,8 +4,6 @@ public class PracticeRun {
     public static void main(String[] args) {
         Practice1 p1 = new Practice1();
         Practice2 p2 = new Practice2();
-        Practice4 p4 = new Practice4();
-        Practice5 p5 = new Practice5();
 
 //        p1.setTitle("JAVA 프로그래밍");
 //        p1.setAuthor("김개발");
@@ -42,5 +40,28 @@ public class PracticeRun {
 //        p3a.transfer("1234",p3,300000);
 //        p3.checkTransactionCount();
 //        p3a.checkTransactionCount();
+//        Practice4 p4 = new Practice4();
+//        p4.setName("홍길동");
+//        p4.setStudentId(2016726023);
+//        p4.inputScores();
+//        p4.printReport();
+
+        Practice5 p5 = new Practice5("현대", "아반떼");
+        p5.displayCarInfo();
+        p5.startEngine();
+        p5.accelerate(50);
+        p5.drive(100);
+        p5.displayCarInfo();
+        p5.startEngine();
+        p5.stopEngine();
+        p5.accelerate(50);
+        p5.brake(100);
+        p5.startEngine();
+        p5.drive(100);
+        p5.accelerate(160);
+        p5.refuel(100);
+        p5.drive(900);
+        p5.displayCarInfo();
+
     }
 }
