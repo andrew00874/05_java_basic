@@ -33,5 +33,13 @@ public class AccountRun {
         String a1pw =  a1.getPassword();
         System.out.println(a1Num);
         System.out.println(a1pw);
+
+        // 필수 생성자를 활용하여 데이터를 저장하고 저장된 데이터 확인
+        Account a2 = new Account("김재민", "3333-02-5100400", 123123, "1111");
+        System.out.println("==== a2의 계좌 정보 ====");
+        System.out.println(a2.getName());
+        System.out.println(a2.getAccountNumber());
+        System.out.println(a2.getPassword());
+        System.out.println(a2.getBalance());
     }
 }
