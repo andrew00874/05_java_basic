@@ -10,8 +10,10 @@ public class Practice1 {
         System.out.print("두 번째 숫자 : ");
         int b = sc.nextInt();
         System.out.println();
-        System.out.printf("%d부터 %d까지의 짝수\n", a, b);
-        for (int i = a; i <= b; i++) {
+        int max = Math.max(a,b);
+        int min = Math.min(a,b);
+        System.out.printf("%d부터 %d까지의 짝수\n", min, max);
+        for (int i = min; i <= max; i++) {
             if (i % 2 == 0) {
                 System.out.print(i + " ");
             }
