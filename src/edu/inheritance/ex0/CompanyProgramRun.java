@@ -1,4 +1,4 @@
-package edu.inheritance;
+package edu.inheritance.ex0;
 
 public class CompanyProgramRun {
     public static void main(String[] args) {

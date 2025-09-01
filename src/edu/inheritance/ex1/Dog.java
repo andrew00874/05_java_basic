@@ -1,6 +1,4 @@
-package edu.inheritance.ex;
-
-import com.sun.security.jgss.GSSUtil;
+package edu.inheritance.ex1;
 
 class Dog extends Animal{
 

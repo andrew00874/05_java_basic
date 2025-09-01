@@ -1,4 +1,4 @@
-package edu.inheritance.ex;
+package edu.inheritance.ex1;
 
 class Cat extends Animal {
 
@@ -18,15 +18,6 @@ class Cat extends Animal {
 
     public void setInsider(Boolean insider) {
         isInsider = insider;
-    }
-
-    public void eat() {
-        super.eat();
-    }
-
-    public void sleep() {
-        super.sleep();
-
     }
 
     public void purr() {
