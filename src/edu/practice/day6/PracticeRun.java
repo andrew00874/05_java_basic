@@ -91,18 +91,16 @@ public class PracticeRun {
         NaverShopping shopping = new NaverShopping("네이버쇼핑", "shopper01", "쇼핑러버", 5, 50000, 3);
         NaverBlog blog = new NaverBlog("네이버블로그", "blogger01", "일상기록가", 8, 150, 5000);
         NaverCafe cafe = new NaverCafe("네이버카페", "cafeuser01", "카페지기", 3, "정회원", 80);
+        NaverService[] services = {shopping, blog, cafe};
 
-        System.out.println("shopping은 NaverService의 인스턴스입니다: " + (shopping instanceof NaverService));
+        System.out.println("shopping은 NaverService의 인스턴스입니다: " + (services[0] instanceof NaverService));
         System.out.println("blog는 NaverService의 인스턴스입니다: " + (blog instanceof NaverService));
         System.out.println("cafe는 NaverService의 인스턴스입니다: " + (cafe instanceof NaverService));
 
         System.out.println("\n=== 오버라이딩된 메서드 테스트 ===");
-        shopping.search();
-        blog.search();
-        cafe.search();
-
-        shopping.writeContent();
-        blog.writeContent();
-        cafe.writeContent();
+        for (NaverService service : services ) {
+            service.search();
+            service.writeContent();
+        }
     }
 }

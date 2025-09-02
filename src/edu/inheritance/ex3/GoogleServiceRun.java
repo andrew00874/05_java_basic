@@ -11,17 +11,27 @@ public class GoogleServiceRun {
         Youtube youtube = new Youtube("Youtube","user1@gmail.com","박길동","개인계정",50,true);
 
 
-        System.out.println("=== 구글 서비스 사용자 정보 ===");
-        gmail.showUserInfo();
-        youtube.showUserInfo();
+        GoogleService[] services = {gmail,youtube};
 
-        System.out.println("\n=== 로그인 ===");
-        gmail.login();
-        youtube.login();
-
-        System.out.println("\n=== 서비스별 검색 ===");
-        gmail.search();
-        youtube.search();
+        for (GoogleService service : services) {
+            System.out.println("=== 구글 서비스 사용자 정보 ===");
+            service.showUserInfo();
+            System.out.println("\n=== 로그인 ===");
+            service.login();
+            System.out.println("\n=== 서비스별 검색 ===");
+            service.search();
+        }
+//        System.out.println("=== 구글 서비스 사용자 정보 ===");
+//        services[0].showUserInfo();
+//        services[1].showUserInfo();
+//
+//        System.out.println("\n=== 로그인 ===");
+//        gmail.login();
+//        youtube.login();
+//
+//        System.out.println("\n=== 서비스별 검색 ===");
+//        gmail.search();
+//        youtube.search();
 
         System.out.println("\n=== 서비스별 고유 기능 ===");
         gmail.sendEmail();

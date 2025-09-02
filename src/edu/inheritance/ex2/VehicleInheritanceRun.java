@@ -40,50 +40,46 @@ public class VehicleInheritanceRun {
         Bicycle bicycle = new Bicycle("트렉", "FX", 2023, "검정색");
         Bicycle bicycle1 = new Bicycle("자이언트", "이스케이프", 2023, "빨간색", 21, true);
 
+        Vehicle[] vehicles = {car1, motorcycle, bicycle, bicycle1};
+
         // ============== 문제 4: 교통수단 정보 출력 ==============
         // 모든 교통수단의 기본 정보를 showInfo() 메소드로 출력하세요.
 
         System.out.println("=== 교통수단 정보 ===");
         // 여기에 코드 작성
-        car1.showInfo();
-        motorcycle.showInfo();
-        bicycle.showInfo();
-        bicycle1.showInfo();
-
+        for (Vehicle vehicle : vehicles) {
+            vehicle.showInfo();
+        }
 
         // ============== 문제 5: 공통 행동 테스트 ==============
         // 모든 교통수단이 시동을 걸고 정지하는 행동을 해보세요. (start, stop 메소드)
 
         System.out.println("\n=== 시동 걸기 ===");
         // 여기에 코드 작성
-        car1.start();
-        motorcycle.start();
-        bicycle.start();
-        bicycle1.start();
+        for (Vehicle vehicle : vehicles) {
+            vehicle.start();
+        }
 
         System.out.println("\n=== 정지하기 ===");
         // 여기에 코드 작성
-        car1.stop();
-        motorcycle.stop();
-        bicycle.stop();
-        bicycle1.stop();
+        for (Vehicle vehicle : vehicles) {
+            vehicle.stop();
+        }
 
         // ============== 문제 6: 오버라이딩된 메소드 테스트 ==============
         // 각 교통수단의 고유한 가속과 제동 방식을 확인하세요.
 
         System.out.println("\n=== 가속 방식 ===");
         // 여기에 accelerate() 메소드 호출
-        car1.accelerate();
-        motorcycle.accelerate();
-        bicycle.accelerate();
-        bicycle1.accelerate();
+        for (Vehicle vehicle : vehicles) {
+            vehicle.accelerate();
+        }
 
         System.out.println("\n=== 제동 방식 ===");
         // 여기에 brake() 메소드 호출
-        car1.brake();
-        motorcycle.brake();
-        bicycle.brake();
-        bicycle1.brake();
+        for (Vehicle vehicle : vehicles) {
+            vehicle.brake();
+        }
 
         // ============== 문제 7: 각 교통수단의 고유 메소드 실행 ==============
         // 자동차: honk(), openTrunk()
