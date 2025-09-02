@@ -67,4 +67,5 @@ public abstract class Kakao {
     public abstract void performSpecialAction();
     public abstract void receiveNotification(String message);
 
+    public abstract String getServiceType();
 }

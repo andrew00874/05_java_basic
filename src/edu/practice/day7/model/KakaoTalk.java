@@ -100,6 +100,11 @@ public class KakaoTalk extends Kakao {
     }
 
     @Override
+    public void performSpecialAction() {
+        System.out.println("메시지가 전송되었습니다.");
+    }
+
+    @Override
     public void receiveNotification(String message) {
         System.out.println("[카카오톡에서 알림 수신] " + message);
     }

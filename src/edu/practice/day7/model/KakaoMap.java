@@ -11,15 +11,15 @@ public class KakaoMap extends Kakao{
         this.serviceType = "MAP";
     }
 
-    public KakaoMap(String serviceName, String userId, String userNickname, boolean isLoggedIn, String currentLocation, boolean isGPSEnabled) {
-        super(serviceName, userId, userNickname, isLoggedIn);
+    public KakaoMap(String serviceName, String userId, String userNickname, String currentLocation, boolean isGPSEnabled) {
+        super(serviceName, userId, userNickname, true);
         this.currentLocation = currentLocation;
         this.isGPSEnabled = isGPSEnabled;
         this.serviceType = "Map";
     }
 
     public KakaoMap(String serviceName, String userId, String userNickname, boolean isLoggedIn) {
-        super(serviceName, userId, userNickname, isLoggedIn);
+        super(serviceName, userId, userNickname, true);
     }
 
     public KakaoMap(String currentLocation, boolean isGPSEnabled, String serviceType) {
@@ -85,11 +85,14 @@ public class KakaoMap extends Kakao{
     }
 
     @Override
+    public void performSpecialAction() {
+        System.out.println("직진후 좌회전하세요");
+    }
+
+    @Override
     public void receiveNotification(String message) {
         System.out.println("[카카오맵에서 알림 수신] " + message);
     }
-
-
 
     public void searchLocation(String location) {
         System.out.println("'" + location + "' 검색 결과를 표시합니다.");

@@ -1,5 +1,6 @@
 package edu.practice.day7.run;
 
+import edu.practice.day7.model.Kakao;
 import edu.practice.day7.model.KakaoPay;
 import edu.practice.day7.model.KakaoTalk;
 import edu.practice.day7.model.KakaoMap;
@@ -13,15 +14,15 @@ public class KakaoRun {
         System.out.println("=== Java 7일차 상속, 추상화, 다형성 실습문제 실행 ===");
 
         // 문제 1-4: 개별 클래스 테스트
-        // testKakaoTalk();
-        // testKakaoPay();
-        // testKakaoMap();
+        testKakaoTalk();
+        testKakaoPay();
+        testKakaoMap();
 
-        // 다형성 테스트
-        // testPolymorphism();
+        //다형성 테스트
+        testPolymorphism();
 
         // 추상 클래스 테스트
-        // testAbstractClass();
+        testAbstractClass();
     }
 
     public static void testKakaoTalk() {
@@ -81,19 +82,19 @@ public class KakaoRun {
         System.out.println("\n=== 다형성 테스트 ===");
 
         // 다형성 배열
-        KakaoService[] services = {
+        Kakao[] services = {
                 new KakaoTalk("카카오톡", "user01", "채팅왕", 150, true),
                 new KakaoPay("카카오페이", "user02", "페이유저", 100000, "123-456-789"),
                 new KakaoMap("카카오맵", "user03", "여행러", "서울시 강남구", true)
         };
 
         System.out.println("=== 모든 서비스 시작 ===");
-        for (KakaoService service : services) {
+        for (Kakao service : services) {
             System.out.println("서비스 타입: " + service.getServiceType());
             service.login();
             service.startService();
             service.performSpecialAction(); // 각 서비스마다 다른 동작
-            System.out.println("instanceof KakaoService: " + (service instanceof KakaoService));
+            System.out.println("instanceof KakaoService: " + (service instanceof Kakao));
             System.out.println("instanceof KakaoTalk: " + (service instanceof KakaoTalk));
             System.out.println("instanceof KakaoPay: " + (service instanceof KakaoPay));
             System.out.println("instanceof KakaoMap: " + (service instanceof KakaoMap));
@@ -101,7 +102,7 @@ public class KakaoRun {
         }
 
         System.out.println("=== 모든 서비스 종료 ===");
-        for (KakaoService service : services) {
+        for (Kakao service : services) {
             service.stopService();
             service.logout();
             System.out.println("---");
@@ -113,8 +114,8 @@ public class KakaoRun {
 
         // KakaoService service = new KakaoService(); // 컴파일 에러! 추상 클래스는 인스턴스화 불가
 
-        KakaoService kakaoTalk = new KakaoTalk("카카오톡", "user01", "채팅왕", 50, true);
-        KakaoService kakaoPay = new KakaoPay("카카오페이", "user02", "페이유저", 200000, "987-654-321");
+        Kakao kakaoTalk = new KakaoTalk("카카오톡", "user01", "채팅왕", 50, true);
+        Kakao kakaoPay = new KakaoPay("카카오페이", "user02", "페이유저", 200000, "987-654-321");
 
         System.out.println("=== 다형성으로 동일한 메서드 호출, 다른 결과 ===");
 
@@ -144,7 +145,7 @@ public class KakaoRun {
         System.out.println("\n=== 전체 서비스 통합 테스트 ===");
 
         // 사용자가 여러 카카오 서비스를 이용하는 시나리오
-        KakaoService[] userServices = {
+        Kakao[] userServices = {
                 new KakaoTalk("카카오톡", "john123", "존", 200, true),
                 new KakaoPay("카카오페이", "john123", "존", 500000, "123-456-789"),
                 new KakaoMap("카카오맵", "john123", "존", "서울시 종로구", true)
@@ -152,7 +153,7 @@ public class KakaoRun {
 
         System.out.println("=== 사용자 'john123'의 모든 서비스 이용 ===");
 
-        for (KakaoService service : userServices) {
+        for (Kakao service : userServices) {
             service.login();
             service.startService();
 

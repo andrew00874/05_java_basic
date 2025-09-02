@@ -9,8 +9,8 @@ public class KakaoPay extends Kakao{
         this.serviceType = "PAY";
     }
 
-    public KakaoPay(String serviceName, String userId, String userNickname, boolean isLoggedIn, int balance, String bankAccount, String serviceType) {
-        super(serviceName, userId, userNickname, isLoggedIn);
+    public KakaoPay(String serviceName, String userId, String userNickname, int balance, String bankAccount) {
+        super(serviceName, userId, userNickname, true);
         this.balance = balance;
         this.bankAccount = bankAccount;
         this.serviceType = "PAY";
@@ -87,6 +87,11 @@ public class KakaoPay extends Kakao{
     @Override
     public void sendNotification(String message) {
         System.out.println("[카카오페이 알림] " + message);
+    }
+
+    @Override
+    public void performSpecialAction() {
+        System.out.println("결제되었습니다.");
     }
 
     @Override
