@@ -38,48 +38,19 @@ public class AnimalInheritanceRun {
         Bird bird1 = new Bird("짹쨱이", 1, "노란색");
         Bird bird2 = new Bird("파랑이", 2, "파란색", 25.5);
 
+        Animal[] animals = {dog1, cat1, bird1, bird2};
+
         // ============== 문제 4: 동물 정보 출력 ==============
         // 모든 동물의 기본 정보를 showInfo() 메소드로 출력하세요.
         System.out.println("=== 동물원 친구들 소개 ===");
         // 여기에 코드 작성
-        dog1.showInfo();
-        cat1.showInfo();
-        bird1.showInfo();
-        bird2.showInfo();
-
-        // ============== 문제 5: 공통 행동 테스트 ==============
-        // 모든 동물이 먹고 자는 행동을 해보세요. (eat, sleep 메소드)
-
-        System.out.println("\n=== 식사 시간 ===");
-        // 여기에 코드 작성
-        dog1.eat();
-        cat1.eat();
-        bird1.eat();
-        bird2.eat();
-
-        System.out.println("\n=== 잠자는 시간 ===");
-        // 여기에 코드 작성
-        dog1.sleep();
-        cat1.sleep();
-        bird1.sleep();
-        bird2.sleep();
-
-        // ============== 문제 6: 오버라이딩된 메소드 테스트 ==============
-        // 각 동물의 고유한 소리와 이동 방식을 확인하세요.
-
-        System.out.println("\n=== 동물들의 소리 ===");
-        // 여기에 makeSound() 메소드 호출
-        dog1.makeSound();
-        cat1.makeSound();
-        bird1.makeSound();
-        bird2.makeSound();
-
-        System.out.println("\n=== 동물들의 이동 ===");
-        // 여기에 move() 메소드 호출
-        dog1.move();
-        cat1.move();
-        bird1.move();
-        bird2.move();
+        for (Animal animal : animals) {
+            animal.showInfo();
+            animal.eat();
+            animal.sleep();
+            animal.makeSound();
+            animal.move();
+        }
 
         // ============== 문제 7: 각 동물의 고유 메소드 실행 ==============
         // 강아지: wagTail(), fetch()
@@ -123,9 +94,10 @@ public class AnimalInheritanceRun {
         Dog dog3 = new Dog("바둑이", 4, "검정색"); // 3개 매개변수 생성자
         Dog dog4 = new Dog("초코", 2, "초콜릿색", "푸들"); // 4개 매개변수 생성자
 
-        dog2.showInfo();
-        dog3.showInfo();
-        dog4.showInfo();
+        Dog[] dogs = {dog1, dog2, dog3, dog4};
+        for (Dog dog : dogs) {
+            dog.showInfo();
+        }
 
         // 각 강아지 정보 출력해보기
 
