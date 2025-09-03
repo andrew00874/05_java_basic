@@ -1,4 +1,4 @@
-package edu.polymorphism.pack2;
+package edu.polymorphism.pack2.ex1;
 
 public class Dog extends Animal{
     private String breed;

@@ -1,4 +1,4 @@
-package edu.polymorphism.pack2;
+package edu.polymorphism.pack2.ex1;
 
 /*
 * 부모 클래스
