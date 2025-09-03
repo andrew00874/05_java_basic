@@ -1,4 +1,4 @@
-package edu.practice.day8;
+package edu.practice.day8.model;
 
 public class Instagram implements SocialMedia {
     private String photo;

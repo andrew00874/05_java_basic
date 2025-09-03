@@ -1,4 +1,4 @@
-package edu.practice.day8;
+package edu.practice.day8.model;
 
 public class KakaoTalk implements Messenger{
     private String friend;

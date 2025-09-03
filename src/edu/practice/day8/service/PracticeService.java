@@ -1,26 +1,12 @@
-package edu.practice.day8;
+package edu.practice.day8.service;
 
-/**
- * Java 8일차 인터페이스, 다형성 실습문제 실행 클래스
- * 각 문제의 주석을 해제하고 실행하세요
- */
-public class PracticeRun {
-    public static void main(String[] args) {
-        System.out.println("=== Java 8일차 인터페이스, 다형성 실습문제 실행 ===");
-        PracticeRun practice = new PracticeRun();
-        practice.videoPlayer();
-        practice.socialMedia();
-        practice.onlineShopping();
-        practice.messenger();
-        practice.streamingService();
-        practice.digitalLife();
-        servicesTogether();
+import edu.practice.day8.model.*;
 
-    }
+public class PracticeService {
 
     public void videoPlayer() {
         System.out.println("\n=== VideoPlayer ===");
-
+//      공통된 인터페이스로 앞에 작성
         VideoPlayer youtube = new YouTube("자바 프로그래밍 강의");
         VideoPlayer tiktok = new TikTok("코딩마스터");
 
@@ -148,7 +134,7 @@ public class PracticeRun {
         System.out.println("\n🌐 디지털 라이프 완료! 내일 또 만나요! 🌐");
     }
 
-    public static void servicesTogether() {
+    public void servicesTogether() {
         System.out.println("\n=== 모든 서비스 ===");
 
         // 사용자가 하루 동안 이용하는 모든 디지털 서비스

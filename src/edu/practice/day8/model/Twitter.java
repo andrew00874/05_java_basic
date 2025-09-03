@@ -1,4 +1,4 @@
-package edu.practice.day8;
+package edu.practice.day8.model;
 
 public class Twitter implements SocialMedia {
     private String tweet;
