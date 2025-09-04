@@ -143,9 +143,7 @@ public class ListService {
         Scanner sc = new Scanner(System.in);
         int input = 0; // 추후 메뉴 번호를 입력 받고, 번호를 가지고 있을 공간의 명칭 = input
 
-        while(true) {
 
-        }
     }
 }
 

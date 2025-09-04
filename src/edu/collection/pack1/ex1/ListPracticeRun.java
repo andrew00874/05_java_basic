@@ -97,4 +97,21 @@ public class ListPracticeRun {
             max = Math.max(max, nums.get(i));
         }
         System.out.println("가장 큰 수 : " + max);
-    }}
+    }
+    public static void problem6() {
+        List<String> strList = new ArrayList<>();
+        strList.add("게임");
+        strList.add("요리");
+        strList.add("독서");
+        strList.add("요리");
+        strList.add("요리");
+        System.out.println(strList);
+
+        System.out.println("요리가 몇번쨰로 들어있나?" + strList.indexOf("요리"));
+        for (int i = 0; i < strList.size(); i++) {
+            if (strList.get(i).equals("요리")){
+                System.out.println(i + "th index");
+            }
+        }
+    }
+}
