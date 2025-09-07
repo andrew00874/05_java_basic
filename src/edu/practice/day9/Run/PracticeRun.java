@@ -1,5 +1,6 @@
 package edu.practice.day9.Run;
 
+import edu.practice.day9.Model.*;
 /**
  * Java 9일차 Map, 컬렉션 실습문제 실행 클래스
  * 각 문제의 주석을 해제하고 실행하세요
@@ -11,8 +12,8 @@ public class PracticeRun {
         System.out.println("=== Java 9일차 Map, 컬렉션 실습문제 실행 ===");
 
         // 각 메서드 주석을 해제하고 실행해보세요
-        // runner.productManager();
-        // runner.memberPointManager();
+        runner.productManager();
+        runner.memberPointManager();
         // runner.employeeManager();
         // runner.informationManagementSystem();
         // runner.allSystemsIntegration();
