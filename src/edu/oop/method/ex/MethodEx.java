@@ -1,4 +1,4 @@
-package edu.oop.method;
+package edu.oop.method.ex;
 /*
 * 메서드
 * 특정 작업을 수행하는 코드의 집합
