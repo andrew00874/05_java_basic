@@ -1,7 +1,9 @@
 package edu.io.pack2.service;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class FileWriteService {
@@ -39,5 +41,27 @@ public class FileWriteService {
             } catch (IOException e){
             throw new  RuntimeException(e);
         }
+    }
+
+    public void method2(){
+        File f = new File("files");
+        File f1 = new File("files/file1.txt");
+        if (!f.exists()){
+            f.mkdir();
+            System.out.println("폴더 생성 완료");
+        }
+        if (!f1.exists()){
+            try{
+                f1.createNewFile();
+                System.out.println("파일 생성 완료");
+                Path filePath = f1.toPath();
+                Files.writeString(filePath, "hi\nhow are you\nhaha");
+            } catch(IOException e){
+                e.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }
