@@ -2,7 +2,7 @@ package edu.practice.day1;
 
 import java.util.Scanner;
 
-public class Excercise2 {
+public class Exercise2 {
     void method2(){
         System.out.println("정수를 두개 입력하세요");
         Scanner sc = new Scanner(System.in);

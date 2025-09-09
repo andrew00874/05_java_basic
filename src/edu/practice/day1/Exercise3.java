@@ -2,7 +2,7 @@ package edu.practice.day1;
 
 import java.util.Scanner;
 
-public class Excercise3 {
+public class Exercise3 {
     void method3(){
         final double RATIO = 1.8;
         final int OFFSET = 32;

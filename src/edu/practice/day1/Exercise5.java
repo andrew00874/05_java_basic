@@ -2,7 +2,7 @@ package edu.practice.day1;
 
 import java.util.Scanner;
 
-public class Excercise5 {
+public class Exercise5 {
     void method5(){
         Scanner sc = new Scanner(System.in);
         System.out.print("출생년도를 입력하세요 : ");

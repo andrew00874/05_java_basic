@@ -2,7 +2,7 @@ package edu.practice.day1;
 
 import java.util.Scanner;
 
-public class Excercise4 {
+public class Exercise4 {
     void method4(){
         Scanner sc = new Scanner(System.in);
         System.out.print("국어 점수 : ");

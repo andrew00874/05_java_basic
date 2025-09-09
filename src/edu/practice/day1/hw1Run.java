@@ -3,11 +3,11 @@ package edu.practice.day1;
 public class hw1Run {
     public static void main(String[] args) {
 
-        Excercise5 ex5 = new Excercise5();
-        Excercise4 ex4 = new Excercise4();
-        Excercise3 ex3 = new Excercise3();
-        Excercise2 ex2 = new Excercise2();
-        Excercise1 ex1 = new Excercise1();
+        Exercise5 ex5 = new Exercise5();
+        Exercise4 ex4 = new Exercise4();
+        Exercise3 ex3 = new Exercise3();
+        Exercise2 ex2 = new Exercise2();
+        Exercise1 ex1 = new Exercise1();
         //ex1.method1();
         //ex2.method2();
         //ex3.method3();

@@ -1,6 +1,6 @@
 package edu.practice.day1;
 
-public class Excercise1 {
+public class Exercise1 {
     void method1(){
         String name= "김자바";
         int age = 25;
