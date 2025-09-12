@@ -3,6 +3,7 @@ package edu.io.pack8.ex;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -30,7 +31,6 @@ public class StringBuilderService {
                 books.append(", 출판년도 : ").append(sc.nextLine());
                 books.append("\n");
             }
-            sc.close();
             Files.writeString(book, books.toString());
         } catch (IOException e) {
             throw new RuntimeException(e);
@@ -70,7 +70,6 @@ public class StringBuilderService {
             gradeData.append("\n");
             sc.nextLine();
         }
-        sc.close();
         try {
             Files.createDirectories(grade.getParent());
             Files.writeString(grade, gradeData.toString());
@@ -80,7 +79,7 @@ public class StringBuilderService {
         }
     }
 
-    public void recordCount() {
+    public void recordAccount() {
         StringBuilder sb = new StringBuilder();
         Path accountFile = Path.of("household", "account_book.txt");
         String timestamp = getCurrentTime();
@@ -99,7 +98,7 @@ public class StringBuilderService {
             sb.append(timestamp + name + ": ");
             System.out.print("금액 : ");
             String howMuch = sc.nextLine();
-            System.out.print("수입/지출");
+            System.out.print("수입/지출 : ");
             String InOut = sc.nextLine();
             if (InOut.equals("수입")){
                 sb.append("+" +howMuch + "원 (수입)");
@@ -111,7 +110,6 @@ public class StringBuilderService {
             sb.append("\n");
         }
         System.out.println();
-        sc.close();
         try {
             Files.createDirectories(accountFile.getParent());
             Files.writeString(accountFile, sb.toString());
@@ -129,4 +127,76 @@ public class StringBuilderService {
     public String getCurrentTime() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss - "));
     }
+
+    public void registerCustomer() {
+        Path cusDir = Path.of("customers", "customer_list.txt");
+        Scanner sc = new Scanner(System.in);
+        StringBuilder sb = new StringBuilder();
+        System.out.println("고객 정보를 입력하세요 (exit를 입력하면 저장됩니다)");
+        String name;
+        while(true) {
+            System.out.print("이름 : ");
+            name = sc.nextLine();
+            if (name.equals("exit")) {
+                break;
+            }
+            sb.append("이름 : ").append(name).append("\n");
+            System.out.print("전화번호 : ");
+            sb.append("전화번호 : ").append(sc.nextLine()).append("\n");
+            System.out.print("이메일 : ");
+            sb.append("이메일 : ").append(sc.nextLine()).append("\n");
+            System.out.print("주소 : ");
+            sb.append("주소 : ").append(sc.nextLine()).append("\n");
+        }
+        try {
+            if (!Files.exists(cusDir)) {
+                Files.createDirectories(cusDir.getParent());
+                Files.writeString(cusDir, sb.toString());
+                System.out.println("새로운 고객 명단을 생성합니다.");
+            } else {
+                Files.writeString(cusDir, sb.toString(),  StandardOpenOption.APPEND, StandardOpenOption.CREATE);
+                System.out.println("기존 고객 명단을 업데이트합니다.");
+            }
+            System.out.println("고객 명단이 저장되었습니다 : " + cusDir.getFileName());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
+    public void processOrder() {
+        Path orders = Path.of("orders", "order_history.txt");
+        Scanner sc = new Scanner(System.in);
+        StringBuilder sb = new StringBuilder();
+        System.out.println("메뉴 주문을 입력하세요 (주문완료를 입력하면 저장됩니다)");
+        sb.append("=== 주문 내역서 ===\n").append(getCurrentTime()).append("\n");
+        int totalAmount = 0;
+        while(true) {
+            String name = "";
+            System.out.print("메뉴명 : ");
+            name = sc.nextLine();
+            if (name.equals("주문완료")) {
+                break;
+            }
+            sb.append("메뉴명 : " + name + "\n");
+            System.out.print("수량 : ");
+            int quantity = sc.nextInt();
+            sb.append("수량 : ").append(quantity).append("\n");
+            System.out.print("가격 : ");
+            int price = sc.nextInt();
+            sb.append("가격 :  ").append(price).append("\n");
+            int tempTotal = quantity * price;
+            sb.append("총액 : ").append(tempTotal).append("\n\n");
+            totalAmount += quantity * price;
+            sc.nextLine();
+        }
+
+        try {
+            Files.createDirectories(orders.getParent());
+            Files.writeString(orders, sb.toString() + "전체 주문금액 : " + totalAmount + "원\n");
+            System.out.println("주문 내역이 저장되었습니다 : " + orders.getFileName());
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+
 }
