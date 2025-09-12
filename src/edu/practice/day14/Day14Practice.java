@@ -30,6 +30,13 @@ public class Day14Practice {
     }
 
     public void writeDiary() {
+        /*
+        * System.currentTimeMillis() = 1970년 01월 01일 0시 0분 0초 기준으로 얼마나 흘렀는지 카운팅
+        *                              long int로는 담을 수 없을만큼 너무 커져버림
+        *                              시간은 계속 흐르기 때문에 숫자값은 계속 커진다.
+        *
+        * LocalDateTime.now() = 현재시간 표현
+        * */
         Path path = Path.of("diary", today(1) +"_일기.txt");
         Scanner sc = new Scanner(System.in);
         String content = "";
@@ -39,6 +46,7 @@ public class Day14Practice {
             content = today(1) + "일기" +sc.nextLine();
             Files.writeString(path, content);
             System.out.println("오늘의 일기가 작성되었습니다: " + path.getFileName());
+            sc.close();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

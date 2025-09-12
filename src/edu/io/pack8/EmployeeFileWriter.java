@@ -1,0 +1,39 @@
+package edu.io.pack8;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.Scanner;
+
+public class EmployeeFileWriter {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        StringBuilder sb = new StringBuilder();
+        System.out.println("직원 정보를 입력 하세요. (종료를 입력하면 파일이 생성됩니다.)");
+        while (true) {
+            System.out.print("직원 이름 : ");
+            String name = sc.nextLine();
+            if (name.equals("종료")){
+                break;
+            }
+
+            System.out.print("부서 이름 : ");
+            String dept = sc.nextLine();
+            System.out.print("직원 이름 : ");
+            String pos = sc.nextLine();
+            sb.append("이름 : " + name + "\n부서 : " + dept + "\n직급 : " + pos + "\n");
+            System.out.println("입력 완료되었습니다. 다음 직원 정보를 입력하거나 종료를 입력하세요.");
+            sc.close();
+        }
+
+        // 종료를 입력하면 파일 저장
+        Path path = Path.of("files", "employee.txt");
+        try {
+            Files.createDirectories(path.getParent());
+            Files.writeString(path, sb.toString());
+            System.out.println("파일이 성공적으로 생성되었습니다." + path);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+}
