@@ -17,9 +17,9 @@ public class Member {
     public Member(String ID, String PW, String name, String email, String phone, String IMG) {
         this.ID = ID;
         this.PW = PW;
-        Name = name;
-        Email = email;
-        Phone = phone;
+        this.Name = name;
+        this.Email = email;
+        this.Phone = phone;
         this.IMG = IMG;
 
     }

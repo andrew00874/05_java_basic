@@ -4,7 +4,9 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 import java.util.List;
+
 
 public class FileManager {
     private static final Path MEMBER_FILE = Path.of("C:", "MemberSystem", "data", "members.txt");
@@ -40,7 +42,23 @@ public class FileManager {
         // Files.readAllLines() 사용
         // 각 줄을 Member.fromFileFormat()으로 변환
         // 빈 줄 제외하고 List<Member>로 반환
-        return null;
+        List<Member> members = new ArrayList<>();
+        try {
+            if (Files.exists(MEMBER_FILE)) {
+                List<String> lines = Files.readAllLines(MEMBER_FILE);
+                for (String line : lines) {
+                    if (!line.trim().isEmpty()) {
+                        Member member = Member.fromFileFormat(line);
+                        if (member != null) {
+                            members.add(member);
+                        }
+                    }
+                }
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return members;
     }
 
     // 이미지 폴더 경로 반환
